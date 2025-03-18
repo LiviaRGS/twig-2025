@@ -2,4 +2,9 @@
 
 {% block conteudo %}
     compras
+    <ul>
+        {% for compra in compras %}
+            <li>{{ compra.item }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
