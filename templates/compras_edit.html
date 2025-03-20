@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+    compras
+    <h3>Editar item</h3>
+        <form action="compras_editFim.php" method="post">
+            <input type="number" name = "id" value = {{ compra.id }} hidden>
+            <input type="text" name = "item" placeholder="Nome do item" value = {{ compra.item }}>
+            <input type="submit" value = "Editar"/>
+        </form>
+{% endblock %}

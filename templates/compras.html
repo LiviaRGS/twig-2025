@@ -2,9 +2,16 @@
 
 {% block conteudo %}
     compras
+    <h3>Adicionar item</h3>
+        <form action="compras_adc.php" method="post">
+            <input type="text" name = "item" placeholder="Nome do item">
+            <input type="submit" value = "Adicionar"/>
+        </form>
+    <h3>Minha lista de compras</h3>
     <ul>
         {% for compra in compras %}
-            <li>{{ compra.item }}</li>
+            <li>{{ compra.item }} <a href="compras_rmv.php?id={{ compra.id }}">Remover</a> <a href="compras_edit.php?id={{ compra.id }}">Editar</a></li>
         {% endfor %}
     </ul>
+    
 {% endblock %}
