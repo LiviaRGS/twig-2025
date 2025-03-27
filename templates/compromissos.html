@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+    Compromissos
+    <h3>Adicionar compromisso</h3>
+        <form action="compromissos_adc.php" method="post">
+            <input type="text" name = "nome" placeholder="Compromisso">
+            <input type="date" name = "data" placeholder="Data">
+            <input type="submit" value = "Adicionar"/>
+        </form>
+    <a href="compromissos.php?ord=1">Ordenar por ordem crescente</a>
+    <a href="compromissos.php?ord=2">Ordenar por ordem decrescente</a>
+    <a href="compromissos.php">Não ordenar</a>
+    <h3>Minha lista de compromissos</h3>
+    <ul>
+        {% for compromisso in compromissos %}
+            <li>{{ compromisso.nome }}: {{ compromisso.data }} {{ compromisso.extra }}<a href="compromissos_rmv.php?id={{ compromisso.id }}">Remover</a> <a href="compromissos_edit.php?id={{ compromisso.id }}">Editar</a></li>
+        {% endfor %}
+    </ul>
+    <img src="Seth_kigurumi_human_happy.png" alt="Seth :3" width = "150">
+    
+{% endblock %}

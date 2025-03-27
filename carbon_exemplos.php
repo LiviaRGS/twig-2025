@@ -38,3 +38,7 @@ echo '<br>';
 
 $nascimento = Carbon::createFromDate(2007,12,28);
 echo 'Diferença de data: '.Carbon::now()->diff($nascimento);
+
+$dataaleatoria = '2023-04-05';
+
+$data = Carbon::parse($dataaleatoria);

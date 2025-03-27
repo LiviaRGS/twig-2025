@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+    compromisso
+    <h3>Editar compromisso</h3>
+        <form action="compromissos_editFim.php" method="post">
+            <input type="number" name = "id" value = {{ compromisso.id }} hidden>
+            <input type="text" name = "nome" placeholder="Título do Compromisso:" value = {{ compromisso.nome }}>
+            <input type="date" name = "data" value = {{ compromisso.data }}>
+            <input type="submit" value = "Editar"/>
+        </form>
+        <br>
+        <img src="Haru_kigurumi_happy.png" alt="Haru :3" width = "150">
+{% endblock %}
