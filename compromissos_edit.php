@@ -3,7 +3,11 @@
 require_once('twig_carregar.php');
 require('inc/banco.php');
 
-
+session_start();
+$user = $_SESSION['user'] ?? null;
+if($user == null){
+    header('location:login.php');
+};
 
 $dados = $pdo->prepare("SELECT * FROM compromissos WHERE id = :id");
 $dados->bindValue(":id",$_GET['id']);

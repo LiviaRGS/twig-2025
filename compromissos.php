@@ -5,15 +5,25 @@ require('inc/banco.php');
 use Carbon\Carbon;
 date_default_timezone_set('America/Sao_Paulo');
 
+session_start();
+$user = $_SESSION['user'] ?? null;
+if($user == null){
+    header('location:login.php');
+};
+
 if(isset($_GET['ord'])){
     if($_GET['ord'] == 1){
-        $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data');
+        $dados = $pdo->prepare('SELECT * FROM compromissos WHERE usuario = :us ORDER BY data');
     }else{
-        $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data DESC');
+        $dados = $pdo->prepare('SELECT * FROM compromissos WHERE usuario = :us ORDER BY data DESC');
     }
 }else{
-    $dados = $pdo->query('SELECT * FROM compromissos');
+    $dados = $pdo->prepare('SELECT * FROM compromissos WHERE usuario = :us');
 };
+
+$dados->bindValue(":us",$user['usuario']);
+$dados->execute();
+
 $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
 $compnovo = [];
 
