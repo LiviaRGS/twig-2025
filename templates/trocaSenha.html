@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+    <h2>Formulário de Troca de Senha</h2>
+    <form action="troca.php" method = "POST">
+        <label for="senhaOld">Senha antiga:</label>
+        <input type="password" name = "senhaOld" id = "senhaOld"/>
+        <br>
+        <label for="senha">Senha nova:</label>
+        <input type="password" name="senha" id="senha">
+        <br>
+        <label for="senhaRep">Repita a senha nova:</label>
+        <input type="password" name="senhaRep" id="senhaRep">
+        <br>
+        <input type="submit" value = "Enviar"/>
+    </form>
+
+{% endblock %}
